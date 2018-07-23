@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome to Louis' Home Page</title>
+</head>
+<body>
+<div th:replace="header::head"></div>
+<h1 style="color: #00FF00;font-family: 'Adobe 黑体 Std R'">卢阳同学</h1>
+<p>很牛逼</p>
+<hr/>
+<p th:text="${value1}"></p>
+<table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+    <!--<th th:each="user:${user}" th:text="${user.key}"></th>-->
+    <th th:each="user:${user}" th:text="${user.value}"></th>
+    </thead>
+    <tbody>
+    <td th:each="userInfo,iterStat:${userInfo}" th:text="${userInfo}+','+${iterStat.index}" align="center"></td>
+    </tbody>
+</table>
+<div>
+    <p th:text="${student.name}"></p>
+    <p th:text="${student.sex}"></p>
+    <p th:text="${student.age}"></p>
+</div>
+<p th:text="${student.description}"></p>
+<p th:text="${student.getDescription()}"></p>
+
+<!-- 自定义局部变量 -->
+<div th:with="color='Red'" th:text="${color}"></div>
+<p th:inline="text">[[${#dates.format(new java.util.Date().getTime(),'yyyy-MM-dd hh:mm:ss')}]]</p>
+<p th:with="weather='sun',temp='33'" th:inline="text">Weather:[[${weather}]]~Temperature:[[${temp}]]</p>
+
+
+</body>
+</html>
