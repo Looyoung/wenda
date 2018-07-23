@@ -20,7 +20,7 @@ public class IndexController {
     @RequestMapping(path = {"/", "/index"})
     @ResponseBody
     public String index() {
-        return "hello louis , you can use idea now";
+        return "hello louis , you can use idea now...";
     }
 
     @RequestMapping(path = "/profile/{userId}/{userName}")
